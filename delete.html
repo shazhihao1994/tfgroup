@@ -1,0 +1,58 @@
+﻿<html>
+<head>    
+<title>科研设备管理系统</title>
+<style type="text/css">
+<!--
+.STYLE1 {color: #FF0000}
+.STYLE2 {font-size: 36px}
+.STYLE3 {font-size: 24px}
+-->
+</style>
+</head> 
+<body align="center" background="/site_media/hit2.jpg">  
+</p>
+  <p align="center" class="STYLE2">科研设备管理系统</p>
+  <p align="right"><a href="http://127.0.0.1:8000/">退出登录</a></p>
+<div align="center">
+  <p class="STYLE3">设备报废申请</p>
+
+  <table border="1">
+    <tr>
+      <td width="110"><div align="center">设备名称</div></td>
+	 <td>{{ member.Name }}</td>
+    </tr>
+    <tr>
+      <td width="110"><div align="center">设备编号</div></td>
+      <td>{{ member.Number }}</td>
+    </tr>
+    <tr>    
+      <td width="110"><div align="center">设备型号</div></td>
+      <td>{{ member.Model }}</td>
+    </tr>      
+    <tr>    
+      <td width="110"><div align="center">设备价格</div></td>
+      <td>{{ member.Price }}</td>
+    </tr>       
+    <tr>    
+      <td width="110"><div align="center">生产日期</div></td>
+      <td>{{ member.Prodate }}</td>
+    </tr>  
+    <tr>    
+      <td width="110"><div align="center">购置日期</div></td>
+      <td>{{ member.Buydate }}</td>
+    </tr>         
+    <tr>
+      <td width="110"><div align="center">报废原因</div></td>
+      <form action="/delete_submit/" method="get">
+	 <td><input name="a" type="text" size="38"></td>
+    </tr>    
+    <tr>    
+      <td width="110"><div align="center">申请人</div></td>
+      <form action="/delete_submit/" method="get">
+	 <td><input name="b" type="text" size="38"></td>
+    </tr>         
+  </table>
+  <p><a href="/delete_submit/?q={{ member.Number }}&a&b">提交</a></p>
+</div>
+</body> 
+</html>

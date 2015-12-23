@@ -1,0 +1,43 @@
+<html>
+<head>    
+<title>科研设备管理系统</title>
+<style type="text/css">
+<!--
+.STYLE1 {color: #FF0000}
+.STYLE2 {font-size: 36px}
+.STYLE3 {font-size: 24px}
+-->
+</style>
+</head> 
+<body align="center" background="/site_media/hit2.jpg">  
+</p>
+  <p align="center" class="STYLE2">科研设备管理系统</p>
+  <p align="right"><a href="http://127.0.0.1:8000/">退出登录</a></p>
+<div align="center">
+  <p class="STYLE3">已借出设备</p>
+
+  <table width="900" border="1">
+    <tr>
+      <td><div align="center">设备名称</div></td>
+      <td><div align="center">设备编号</div></td>
+      <td><div align="center">设备型号</div></td>
+      <td><div align="center">设备价格</div></td>
+      <td><div align="center">生产日期</div></td>
+      <td><div align="center">购置日期</div></td>
+      <td><div align="center"></div></td>
+    </tr>
+    {% for Lingnumber in Lingnumbers %}
+    <tr>
+      <td><div align="center">{{ Lingnumber.LingName }}</div></td>
+      <td><div align="center">{{ Lingnumber.LingNumber }}</div></td>
+      <td><div align="center">{{ Lingnumber.LingModel }}</div></td>
+      <td><div align="center">{{ Lingnumber.LingPrice }}</div></td>
+      <td><div align="center">{{ Lingnumber.LingProdate }}</div></td>
+      <td><div align="center">{{ Lingnumber.LingBuydate }}</div></td>
+	 <td><div align="center"><a href="/return_submit/?q={{ Lingnumber.LingNumber }}">归还设备</a></div></td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+</body> 
+</html>

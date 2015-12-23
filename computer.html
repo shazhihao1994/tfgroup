@@ -1,0 +1,51 @@
+<html>
+<head>    
+<title>科研设备管理系统</title>
+<style type="text/css">
+<!--
+.STYLE1 {color: #FF0000}
+.STYLE2 {font-size: 36px}
+.STYLE3 {font-size: 24px}
+-->
+</style>
+</head> 
+<body align="center" background="/site_media/hit2.jpg">  
+</p>
+  <p align="center" class="STYLE2">科研设备管理系统</p>
+  <p align="right"><a href="http://127.0.0.1:8000/">退出登录</a></p>
+<div align="center">
+  <p class="STYLE3">计算机</p>
+
+  <table width="1100" border="1">
+    <tr>
+      <td><div align="center">设备名称</div></td>
+      <td><div align="center">设备编号</div></td>
+      <td><div align="center">设备型号</div></td>
+      <td><div align="center">设备价格</div></td>
+      <td><div align="center">生产日期</div></td>
+      <td><div align="center">购置日期</div></td>
+      <td><div align="center"></div></td>
+      <td><div align="center"></div></td>
+      <td><div align="center"></div></td>
+      <td><div align="center"></div></td>
+    </tr>
+    {% for number in numbers %}
+    <tr>
+      <td><div align="center">{{ number.Name }}</div></td>
+      <td><div align="center">{{ number.Number }}</div></td>
+      <td><div align="center">{{ number.Model }}</div></td>
+      <td><div align="center">{{ number.Price }}</div></td>
+      <td><div align="center">{{ number.Prodate }}</div></td>
+      <td><div align="center">{{ number.Buydate }}</div></td>
+      <td><div align="center"><a href="/update/?q={{ number.Number }}">更新设备</a></div></td>
+      <td><div align="center"><a href="/lend/?q={{ number.Number }}">借出设备</a></div></td>
+      <td><div align="center"><a href="/give/?q={{ number.Number }}">调拨设备</a></div></td>
+      <td><div align="center"><a href="/delete/?q={{ number.Number }}">报废设备</a></div></td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p>总数量:{{ length }}</p>
+  <p>总价格:{{ prices }}</p>
+</div>
+</body> 
+</html>

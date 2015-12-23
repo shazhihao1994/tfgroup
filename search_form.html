@@ -1,0 +1,71 @@
+<html>
+<head>    
+<title>科研设备管理系统</title>
+<style type="text/css">
+<!--
+.STYLE1 {color: #FF0000}
+.STYLE2 {font-size: 36px}
+.STYLE3 {font-size: 24px}
+-->
+</style>
+</head> 
+<body align="center" background="/site_media/hit2.jpg">  
+</p>
+  <p align="center" class="STYLE2">科研设备管理系统</p>
+  <p align="right"><a href="http://127.0.0.1:8000/">退出登录</a></p>
+<div align="center">
+  <p class="STYLE3">查询设备</p>
+  {% if error %}
+  <p class="STYLE1">请输入</p>
+  <p>{% endif %}
+</div>
+<form action="/search_result/" method="get">
+<div align="center">
+<table width="1080">
+   <tr>
+     <td width="180"><div align="center">按名称查询</div></td>
+     <td width="180"><div align="center">按编号查询</div></td>
+     <td width="180"><div align="center">按型号查询</div></td>
+     <td width="180"><div align="center">按价格查询</div></td>
+     <td width="180"><div align="center">按生产日期查询</div></td>
+     <td width="180"><div align="center">按购置日期查询</div></td>
+   </tr>
+   <tr>
+     <td>
+       <div align="center">
+         <input name="a" type="text">       
+         <input name="submit1" type="submit" value="search">     
+     </div></td>
+     <td>
+       <div align="center">
+         <input name="b" type="text">       
+         <input name="submit2" type="submit" value="search">     
+     </div></td>
+     <td>
+       <div align="center">
+         <input name="c" type="text">       
+         <input name="submit3" type="submit" value="search">     
+     </div></td>
+     <td>
+       <div align="center">
+         <input name="d" type="text">       
+         <input name="submit4" type="submit" value="search">     
+     </div></td>
+     <td>
+       <div align="center">
+         <input name="e" type="text">       
+         <input name="submit5" type="submit" value="search">     
+     </div></td>
+     <td>
+       <div align="center">
+         <input name="f" type="text">       
+         <input name="submit6" type="submit" value="search">     
+     </div></td>
+   </tr>
+ </table>
+<p>&nbsp;</p>
+<p><a href="/summary/">全部设备</a></p>
+<p><a href="/add_form/">添加设备</a></p>
+</div>
+</body> 
+</html>
