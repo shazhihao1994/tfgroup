@@ -13,11 +13,12 @@ def main_page(request):
     <head><title>%s</title></head>
     <body align="center" background="/site_media/hit.jpg">
     <h1 align="center">%s</h1>
-    <p align="center">
+    <div align="center">
     <p>&nbsp;</p>
     <p><a href='http://127.0.0.1:8000/registe/'>用户注册</a></p>
     <p><a href='http://127.0.0.1:8000/login/'>用户登录</a></p>
-    <p><a href='http://127.0.0.1:8000/admin/'>管理员登录</a></p></p>
+    <p><a href='http://127.0.0.1:8000/admin/'>管理员登录</a></p>
+    </div>
     </body>
     </html>
     ''' % (  
