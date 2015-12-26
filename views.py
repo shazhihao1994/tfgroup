@@ -57,29 +57,32 @@ def search_form(request):
     
 def search_result(request):
     
+    L = request.session['Leixing']
+    L=L+'-'
     if 'a' in request.GET and request.GET['a']:
         a = request.GET['a']
-        numbers = Equipment.objects.filter(Name__contains=a)
+        numbers = Equipment.objects.filter(Name__contains=a,Number__contains=L)
         return render_to_response('search_result.html',{'numbers':numbers})
     if 'b' in request.GET and request.GET['b']:
         b = request.GET['b']
+        b=L+b
         numbers=Equipment.objects.filter(Number__contains=b)
         return render_to_response('search_result.html',{'numbers':numbers})
     if 'c' in request.GET and request.GET['c']:
         c = request.GET['c']
-        numbers=Equipment.objects.filter(Model__contains=c)
+        numbers=Equipment.objects.filter(Model__contains=c,Number__contains=L)
         return render_to_response('search_result.html',{'numbers':numbers})
     if 'd' in request.GET and request.GET['d']:
         d = request.GET['d']
-        numbers=Equipment.objects.filter(Price__contains=d)
+        numbers=Equipment.objects.filter(Price__contains=d,Number__contains=L)
         return render_to_response('search_result.html',{'numbers':numbers})
     if 'e' in request.GET and request.GET['e']:
         e = request.GET['e']
-        numbers=Equipment.objects.filter(Prodate__contains=e)
+        numbers=Equipment.objects.filter(Prodate__contains=e,Number__contains=L)
         return render_to_response('search_result.html',{'numbers':numbers})
     if 'f' in request.GET and request.GET['f']:
         f = request.GET['f']
-        numbers=Equipment.objects.filter(Buydate__contains=f)
+        numbers=Equipment.objects.filter(Buydate__contains=f,Number__contains=L)
         return render_to_response('search_result.html',{'numbers':numbers})
         
     else:   
@@ -115,8 +118,9 @@ def add_result(request):
     return render_to_response('result.html', {'type':'添加','result':'成功'})
 
 def computer(request):
-    
-    numbers = Equipment.objects.filter(Number__contains='-C')
+    L = request.session['Leixing']
+    L=L+'-C'
+    numbers = Equipment.objects.filter(Number__contains=L)
     length = len(numbers)
     prices = 0
     for i in range(0,length):
@@ -124,8 +128,9 @@ def computer(request):
     return render_to_response('computer.html',{'numbers':numbers,'length':length,'prices':prices})
 
 def robot(request):
-    
-    numbers = Equipment.objects.filter(Number__contains='-R')
+    L = request.session['Leixing']
+    L=L+'-R'
+    numbers = Equipment.objects.filter(Number__contains=L)
     length = len(numbers)
     prices = 0
     for i in range(0,length):
@@ -133,8 +138,9 @@ def robot(request):
     return render_to_response('robot.html',{'numbers':numbers,'length':length,'prices':prices})
 
 def sensor(request):
-    
-    numbers = Equipment.objects.filter(Number__contains='-S')
+    L = request.session['Leixing']
+    L=L+'-S'
+    numbers = Equipment.objects.filter(Number__contains=L)
     length = len(numbers)
     prices = 0
     for i in range(0,length):
@@ -254,22 +260,26 @@ def return_submit(request):
     return render_to_response('result.html', {'type':'归还','result':'成功'})
  
 def to_be_lent(request):
-    
-    Lnumbers = LendEquipment.objects.all()
+    L = request.session['Leixing']
+    L=L+'-'
+    Lnumbers = LendEquipment.objects.filter(LNumber__contains=L)
     return render_to_response('to_be_lent.html',{'Lnumbers':Lnumbers})
 
 def lending(request):
-    
-    Lingnumbers = LendingEquipment.objects.all()
+    L = request.session['Leixing']
+    L=L+'-'
+    Lingnumbers = LendingEquipment.objects.filter(LingNumber__contains=L)
     return render_to_response('lending.html',{'Lingnumbers':Lingnumbers})
 
 def to_be_given(request):
-    
-    Gnumbers = GiveEquipment.objects.all()
+    L = request.session['Leixing']
+    L=L+'-'
+    Gnumbers = GiveEquipment.objects.filter(GNumber__contains=L)
     return render_to_response('to_be_given.html',{'Gnumbers':Gnumbers})
 
 def to_be_deleted(request):
-    
-    Dnumbers = DeleteEquipment.objects.all()
+    L = request.session['Leixing']
+    L=L+'-'
+    Dnumbers = DeleteEquipment.objects.filter(DNumber__contains=L)
     return render_to_response('to_be_deleted.html',{'Dnumbers':Dnumbers})
   
